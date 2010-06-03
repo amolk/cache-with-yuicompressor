@@ -1,17 +1,24 @@
 = cache-with-yuicompressor
 
-Description goes here.
+This gem sets up javascript and CSS bundle file compression using the YUI Compressor. 
 
-== Note on Patches/Pull Requests
- 
-* Fork the project.
-* Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a
-  future version unintentionally.
-* Commit, do not mess with rakefile, version, or history.
-  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
-* Send me a pull request. Bonus points for topic branches.
+For example, using
+    javascript_include_tag "prototype", "cart", "checkout", :cache => "shop"
 
-== Copyright
+creates a combined javascript file named shop.js. With this gem, YUI compressor will also be run on shop.js, resulting in a smaller, obfuscated file. 
 
-Copyright (c) 2010 Amol Kelkar. See LICENSE for details.
+Don't forget to use GZip to further compress your asset files.
+
+== Installation
+
+cache-with-yuicompressor is provided as a gem. Simply include it in your environment.rb or Gemfile.
+
+  config.gem "cache-with-yuicompressor"
+
+Alternatively it can be installed as a plugin.
+
+  script/plugin install git://github.com/amolk/cache-with-yuicompressor.git
+
+== And that's it!
+
+  All generated javascript and css files will be automatically compressed using YUI Compressor.
