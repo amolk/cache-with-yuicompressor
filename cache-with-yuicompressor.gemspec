@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "cache-with-yuicompressor.gemspec",
      "lib/cache-with-yuicompressor.rb",
      "lib/jargs-1.0.jar",
      "lib/rhino-1.6R7.jar",
