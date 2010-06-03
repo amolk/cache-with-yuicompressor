@@ -5,7 +5,7 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "cache-with-yuicompressor"
-    gem.summary = %Q{Automatically compress javascript and CSS bundles using YUI Compressor}
+    gem.summary = %Q{"Automatically compress javascript and CSS bundles using YUI Compressor"}
     gem.description = %Q{"This gem sets up javascript and CSS bundle file compression using the YUI Compressor. For example, using [javascript_include_tag \"prototype\", \"cart\", \"checkout\", :cache => \"shop\"] creates a combined javascript file named shop.js. With this gem, YUI compressor will also be run on shop.js, resulting in a smaller, obfuscated file."}
     gem.email = "kelkar.amol@gmail.com"
     gem.homepage = "http://github.com/amolk/cache-with-yuicompressor"
