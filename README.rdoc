@@ -18,6 +18,12 @@ cache-with-yuicompressor is provided as a gem. Simply include it in your environ
 Alternatively it can be installed as a plugin.
 
   script/plugin install git://github.com/amolk/cache-with-yuicompressor.git
+  
+=== Install JAVA
+The YUI compressor requires JAVA runtime to be installed. Install JRE as per your platform.
+
+For Ubuntu, you can follow instructions at
+http://blog.amolkelkar.info/technotes/2010/06/solved-how-to-install-java-jre-on-ubuntu/. 
 
 == And that's it!
 
