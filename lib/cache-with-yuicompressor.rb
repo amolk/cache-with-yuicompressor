@@ -8,17 +8,21 @@ module ActionView
 
         begin
           # remove console.log calls 
+          temp_file_path = joined_asset_path + ".tmp"
           f = File.open(joined_asset_path)
-          fo = File.new("temp_" + joined_asset_path, "w")
+          fo = File.new(temp_file_path, "w")
           f.each {|line|
             fo.puts line.gsub(/console.(log|debug|info|warn|error|assert|dir|dirxml|trace|group|groupEnd|time|timeEnd|profile|profileEnd|count)\((.*)\);?/,"");
           }
           fo.close
           f.close
 
+          # copy the file to the joined_asset_path
+          system("cp #{temp_file_path} #{joined_asset_path}")
+
+          # ask yui compressor to compress the file
           jarpath = File.dirname(__FILE__) + "/yuicompressor-2.4.2.jar";
-          #puts "JAR Path : #{jarpath}"
-          cmd = "java -jar #{jarpath} temp_#{joined_asset_path} -o #{joined_asset_path}"
+          cmd = "java -jar #{jarpath} #{joined_asset_path} -o #{joined_asset_path}"
           ret = system(cmd)
         rescue
         end
