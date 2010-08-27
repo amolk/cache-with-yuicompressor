@@ -28,3 +28,4 @@ http://blog.amolkelkar.info/technotes/2010/06/solved-how-to-install-java-jre-on-
 == And that's it!
 
   All generated javascript and css files will be automatically compressed using YUI Compressor.
+  Also all console.* calls (such as console.log, console.trace) will be removed from javascript.

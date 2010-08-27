@@ -7,10 +7,18 @@ module ActionView
         File.atomic_write(joined_asset_path) { |cache| cache.write(join_asset_file_contents(asset_paths)) }
 
         begin
-          file = joined_asset_path
+          # remove console.log calls 
+          f = File.open(joined_asset_path)
+          fo = File.new("temp_" + joined_asset_path, "w")
+          f.each {|line|
+            fo.puts line.gsub(/console.(log|debug|info|warn|error|assert|dir|dirxml|trace|group|groupEnd|time|timeEnd|profile|profileEnd|count)\((.*)\);?/,"");
+          }
+          fo.close
+          f.close
+
           jarpath = File.dirname(__FILE__) + "/yuicompressor-2.4.2.jar";
           #puts "JAR Path : #{jarpath}"
-          cmd = "java -jar #{jarpath} #{file} -o #{file}"
+          cmd = "java -jar #{jarpath} temp_#{joined_asset_path} -o #{joined_asset_path}"
           ret = system(cmd)
         rescue
         end
